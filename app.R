@@ -304,7 +304,8 @@ ui <- navbarPage("Gallicagram",
                                                     fluidRow(textOutput("legende1"),align="right"),
                                                     fluidRow(textOutput("legende2"),align="right"),
                                                     fluidRow(textOutput("legende3"),align="right"),
-                                                    p("")
+                                                    p(""),
+                                                    h2(textOutput("currentTime"), style="color:white")
                                                     ))),
                  tabPanel("Notice",shiny::includeMarkdown("Notice.md")),
                  tabPanel("Corpus",plotlyOutput("corpus_presse"),plotlyOutput("corpus_livres")),
@@ -386,7 +387,10 @@ server <- function(input, output,session){
       })
     })
 
-  
+  output$currentTime <- renderText({
+    invalidateLater(1000, session)
+    paste("The current time is", Sys.time())
+  })
 }
 Barplot1 <- function(){table<-read.csv("base_presse_annees.csv")
 somme<-sum(table$base_temp)
