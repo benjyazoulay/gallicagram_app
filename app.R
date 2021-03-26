@@ -303,11 +303,14 @@ ui <- navbarPage("Gallicagram",
                                                     p(""),
                                                     h2(textOutput("currentTime"), style="color:white")
                                                     ))),
-                 tabPanel("Notice",shiny::includeMarkdown("Notice.md")),
-                 tabPanel("Corpus",plotlyOutput("corpus_presse"),plotlyOutput("corpus_livres")),
+                 tabPanel("Notice",shiny::includeMarkdown("Notice.md"),
+                                                    h2(textOutput("currentTime"), style="color:white")),
+                 tabPanel("Corpus",plotlyOutput("corpus_presse"),plotlyOutput("corpus_livres"),
+                                                    h2(textOutput("currentTime"), style="color:white")),
                  tabPanel("Tutoriel",headerPanel("Tutoriel"),
                           fluidPage(HTML('<iframe width="560" height="315" src="https://www.youtube.com/embed/SujS4t-ZGhQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
-                                      )),
+                                      ),
+                                                    h2(textOutput("currentTime"), style="color:white")),
                  tabPanel(title=HTML("<li><a href='https://gallicapresse.herokuapp.com/' target='_blank'>Gallicapresse"))
 )
 
