@@ -3,7 +3,7 @@
 # Example R code to install packages if not already installed
 #
 
-my_packages = c("shiny", "ggplot2", "plotly","stringr","Hmisc","xml2","markdown","shinythemes","htmlwidgets","httr")
+my_packages = c("shiny", "ggplot2", "plotly","stringr","Hmisc","xml2","markdown","shinythemes","htmlwidgets","httr","ngramr")
 
 install_if_missing = function(p) {
   if (p %in% rownames(installed.packages()) == FALSE) {
